@@ -107,8 +107,7 @@ namespace SimpleHitbox2D
 		{
 			for(int i = 0; i < hitbox.Lines.Count; i++)
 				for(int j = 0; j < Lines.Count; j++)
-					if((ConvexContains(hitbox.Lines[i].A) == false || ConvexContains(hitbox.Lines[i].B) == false) &&
-						 (hitbox.ConvexContains(Lines[j].A) == false || hitbox.ConvexContains(Lines[j].B) == false))
+					if((ConvexContains(hitbox.Lines[i].A) == false || ConvexContains(hitbox.Lines[i].B) == false))
 						return false;
 			return true;
 		}
