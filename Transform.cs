@@ -12,7 +12,7 @@ namespace SimpleHitbox2D
 	public class Transform
 	{
 		private readonly List<Transform> children = new();
-		private Transform parent;
+		private Transform? parent;
 		private Vector2 localPos;
 		private float localAng, localSc;
 		private Matrix3x2 global;
@@ -22,7 +22,7 @@ namespace SimpleHitbox2D
 		/// (or attached to one another).<br></br>
 		/// - Note: An <see cref="ArgumentException"/> is thrown if the provided <see cref="Transform"/> a child of this <see cref="Transform"/> or itself.
 		/// </summary>
-		public Transform Parent
+		public Transform? Parent
 		{
 			get => parent;
 			set
@@ -168,7 +168,7 @@ namespace SimpleHitbox2D
 		/// <summary>
 		/// Create the <see cref="Transform"/> by specifying all of its various components.
 		/// </summary>
-		public Transform(Vector2 localPosition = default, float localAngle = default, float localScale = 1, Transform parent = default, params Transform[] children)
+		public Transform(Vector2 localPosition = default, float localAngle = default, float localScale = 1, Transform? parent = default, params Transform[] children)
 		{
 			Parent = parent;
 			LocalPosition = localPosition;
