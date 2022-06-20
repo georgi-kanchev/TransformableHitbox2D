@@ -61,11 +61,11 @@ namespace SimpleHitbox2D
 		}
 		/// <summary>
 		/// A shortcut for
-		/// <code>var overlaps = Crosses(hitbox) || ConvexContains(hitbox);</code>
+		/// <code>var overlaps = Crosses(hitbox) || ConvexContains(hitbox) || hitbox.ConvexContains(this);</code>
 		/// </summary>
 		public bool ConvexOverlaps(Hitbox hitbox)
 		{
-			return Crosses(hitbox) || ConvexContains(hitbox);
+			return Crosses(hitbox) || ConvexContains(hitbox) || hitbox.ConvexContains(this);
 		}
 		/// <summary>
 		/// Whether <see cref="Lines"/> surround a <paramref name="point"/>.
