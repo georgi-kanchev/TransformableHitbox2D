@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace SimpleHitbox2D
+namespace TransformableHitbox2D
 {
 	/// <summary>
 	/// Lines are useful for collision detection, debugging, raycasting and much more.
@@ -89,6 +89,7 @@ namespace SimpleHitbox2D
 				 B : A + AB * distance;
 		}
 
+		#region Backend
 		private static Vector2 CrossPoint(Vector2 A, Vector2 B, Vector2 C, Vector2 D)
 		{
 			var a1 = B.Y - A.Y;
@@ -106,5 +107,6 @@ namespace SimpleHitbox2D
 			var y = (a1 * c2 - a2 * c1) / determinant;
 			return new Vector2(x, y);
 		}
+		#endregion
 	}
 }

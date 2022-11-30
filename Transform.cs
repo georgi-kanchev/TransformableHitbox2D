@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Numerics;
 
-namespace SimpleHitbox2D
+namespace TransformableHitbox2D
 {
 	/// <summary>
 	/// This class is used to make transformations in 2D space and to store their results.
@@ -11,12 +11,6 @@ namespace SimpleHitbox2D
 	/// </summary>
 	public class Transform
 	{
-		private readonly List<Transform> children = new();
-		private Transform? parent;
-		private Vector2 localPos;
-		private float localAng, localSc;
-		private Matrix3x2 global;
-
 		/// <summary>
 		/// The parent would transform this <see cref="Transform"/> upon moving, rotating or scaling as if they were the same object
 		/// (or attached to one another).<br></br>
@@ -230,6 +224,13 @@ namespace SimpleHitbox2D
 			return AngleTo360(DirectionToAngle(targetPoint - point));
 		}
 
+		#region Backend
+		private readonly List<Transform> children = new();
+		private Transform? parent;
+		private Vector2 localPos;
+		private float localAng, localSc;
+		private Matrix3x2 global;
+
 		private static float DegreesToRadians(float degrees)
 		{
 			return (MathF.PI / 180f) * degrees;
@@ -309,5 +310,6 @@ namespace SimpleHitbox2D
 		{
 			return MathF.Sqrt(matrix.M11 * matrix.M11 + matrix.M12 * matrix.M12);
 		}
+		#endregion
 	}
 }
